@@ -1,0 +1,74 @@
+<!-- <html>
+
+<head>
+
+</head>
+
+<body
+    style=" font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;"
+    ;>
+    <h6 style="text-align: center; margin-top: 3%;">|| श्री ज्योतिबा प्रसन्न ||</h16>
+        <h1 style="margin: 5%;">
+            Dipak Traders
+        </h1>
+        <hr style="height:5px; background: #000;">
+
+        <h3>Customer Name :${name}</h3>
+        <h3>Address :${address}</h3>
+        <h3>Contact :${contact}</h3>
+        <h3>Date : ${dateFormat(Date.now(), "dd-mm-yyyy") Time :${GetTime(new Date())}</h3>
+
+        <table style="width:100%; border-collapse: collapse;border:1px solid; ">
+            <tr>
+                <th>No</th>
+                <th>Item</th>
+                <th>Quntity</th>
+                <th>Price</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Mug</td>
+                <td>2</td>
+                <td>120</td>
+                <td>240</td>
+            </tr>
+        </table>
+
+</body>
+
+</html> -->
+
+<html>
+
+<head></head>
+
+<body style="font-family: 'Arial', sans-serif;">
+    <h6 style="text-align: center; margin-top: 3%;">|| श्री ज्योतिबा प्रसन्न ||</h6>
+    <h1 style="margin: 5%;">Dipak Traders</h1>
+    <hr style="height:5px; background: #000;">
+    <h3>Customer Name: ${name}</h3>
+    <h3>Address: ${address}</h3>
+    <h3>Contact: ${contact}</h3>
+    <h3>Date: ${new Date().toLocaleDateString()} Time: ${new Date().toLocaleTimeString()}</h3>
+    <table style="width:100%; border-collapse: collapse; border: 1px solid;">
+        <tr>
+            <th>No</th>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Amount</th>
+        </tr>
+        ${items.map((item, index) => ( `
+        <tr key=${index}>
+            <td>${index + 1}</td>
+            <td>${item.name}</td>
+            <td>${item.quantity}</td>
+            <td>${item.price}</td>
+            <td>${item.totalPrice}</td>
+        </tr>` )).join('')}
+    </table>
+    <h3>Total Bill: ${totalBill}</h3>
+</body>
+
+</html>
