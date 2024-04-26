@@ -37,12 +37,11 @@ export default function CreateBill() {
     };
 
     const addItem = () => {
-        // Check if the previous item is filled
-        const prevItem = items[items.length - 1];
-        if (prevItem && (!prevItem.name || !prevItem.quantity || !prevItem.price)) {
+        // Check if the customer information fields are filled
+        if (!name || !address || !contact) {
             Alert.alert(
-                'Fill Empty Item',
-                'Please fill all fields of the previous item before adding a new one.',
+                'Fill Customer Information',
+                'Please fill all customer information fields before adding an item.',
                 [
                     {
                         text: 'OK',
@@ -51,16 +50,32 @@ export default function CreateBill() {
                 ]
             );
         } else {
-            const newItem = {
-                id: items.length + 1,
-                name: '',
-                quantity: '',
-                price: '',
-                totalPrice: 0
-            };
-            setItems([...items, newItem]);
+            // Check if the previous item is filled
+            const prevItem = items[items.length - 1];
+            if (prevItem && (!prevItem.name || !prevItem.quantity || !prevItem.price)) {
+                Alert.alert(
+                    'Fill Empty Item',
+                    'Please fill all fields of the previous item before adding a new one.',
+                    [
+                        {
+                            text: 'OK',
+                            onPress: () => console.log('OK Pressed')
+                        }
+                    ]
+                );
+            } else {
+                const newItem = {
+                    id: items.length + 1,
+                    name: '',
+                    quantity: '',
+                    price: '',
+                    totalPrice: 0
+                };
+                setItems([...items, newItem]);
+            }
         }
     };
+
 
     const removeItem = (id) => {
         const newItems = items.filter(item => item.id !== id);
