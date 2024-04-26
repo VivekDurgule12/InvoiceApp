@@ -175,15 +175,16 @@ export default function CreateBill() {
                         </View>
                     </TouchableOpacity>
                 ))}
-                <TouchableOpacity onPress={addItem} style={styles.addButton}>
-                    <Text style={styles.addButtonLabel}> Add Item</Text>
-                </TouchableOpacity>
+                <View style={styles.buttonContainer}>
+                    <TouchableOpacity onPress={addItem} style={[styles.addButton, styles.inlineButton]}>
+                        <Text style={styles.addButtonLabel}>Add Item</Text>
+                    </TouchableOpacity>
 
-                <TouchableOpacity style={styles.createInvoiceButton}
-                    onPress={() => console.log("Running")}
-                >
-                    <Text style={styles.createInvoiceButtonText}>Create Invoice</Text>
-                </TouchableOpacity>
+                    <TouchableOpacity onPress={createInvoice} style={[styles.createInvoiceButton, styles.inlineButton]}>
+                        <Text style={styles.createInvoiceButtonText}>Create Invoice</Text>
+                    </TouchableOpacity>
+                </View>
+
 
                 <Text style={styles.totalBill}>Total Bill: ₹ {totalBill}</Text>
             </ScrollView>
@@ -280,5 +281,30 @@ const styles = StyleSheet.create({
         marginTop: 20,
         textAlign: 'center',
         color: 'green'
-    }
+    },
+    buttonContainer: {
+        flexDirection: 'row', // Arrange items horizontally
+        justifyContent: 'space-between', // Spacing between buttons
+        marginTop: 20,
+    },
+    inlineButton: {
+        flex: 1, // Take up equal space
+        marginHorizontal: 5, // Add some horizontal margin between buttons
+    },
+    addButton: {
+        backgroundColor: 'blue',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 50,
+        borderRadius: 4,
+    },
+    createInvoiceButton: {
+        backgroundColor: 'green',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 50,
+        borderRadius: 4,
+    },
+
+
 });
