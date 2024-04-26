@@ -226,8 +226,12 @@ const styles = StyleSheet.create({
         marginHorizontal: 5
     },
     totalPrice: {
-        marginLeft: 10,
-        fontSize: 16
+        fontWeight: 'bold',
+        marginTop: 0,
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: '#000',
+        fontSize: 15
     },
     addButton: {
         backgroundColor: 'blue',
